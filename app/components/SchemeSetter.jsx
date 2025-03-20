@@ -59,10 +59,7 @@ export function SchemeSetter(){
     return <div className="flex h-screen">
     {/* {isSidebarOpen && <Sidebar openAllocation={openAllocation} setopenAllocation={setopenAllocation} toggleSidebar={toggleSidebar} />} */}
     {
-      openAllocation ? <TeacherAllocation /> :  <div className="flex-1 p-5">
-      <button className="p-2 bg-gray-700 text-white rounded-md" onClick={toggleSidebar}>
-        <FiMenu />
-      </button>
+      <div className="flex-1 p-5">
       <h1 className="text-3xl font-bold my-4">Course Scheme</h1>
       
       <div className="mb-4">
@@ -125,6 +122,7 @@ export function SchemeSetter(){
         </div>
       ))}
     </div>
+
     }
 
    
