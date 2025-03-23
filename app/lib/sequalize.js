@@ -1,9 +1,10 @@
 import { Sequelize } from "sequelize";
+// const Sequelize = require()
 import pg from "pg";
 require("dotenv").config();
 
 const DATABASE_URL =
-  process.env.DATABASE_URL || "postgres://postgres:root@localhost:5432/codemate_p3";
+  process.env.DATABASE_URL || "postgresql://postgres:_tGTdZfS!MHP9m6@db.pirefezxppgggchemllx.supabase.co:5432/postgres";
 
 const sequelize = new Sequelize(DATABASE_URL, {
   dialectModule: pg,
@@ -24,3 +25,5 @@ const sequelize = new Sequelize(DATABASE_URL, {
 })();
 
 export default sequelize;
+// module.exports = sequelize
+// 
