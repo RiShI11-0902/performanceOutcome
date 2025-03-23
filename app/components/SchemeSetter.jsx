@@ -1,6 +1,134 @@
+// "use client";
+// import { useRouter } from "next/navigation";
+// import { useState } from "react";
+
+// export default function CourseScheme() {
+//   const router = useRouter();
+//   const [scheme, setScheme] = useState("MCA");
+//   const [batch, setBatch] = useState("2024-2025");
+//   const [formData, setFormData] = useState({
+//     semester: "",
+//     courseCode: "",
+//     nameofcourse: "",
+//     totalMarks: "",
+//     internal: "",
+//     external: "",
+//     practicals: "",
+//     credits: "",
+//     lectures: "",
+//     courseOutcome: "",
+//     electives: "",
+//   });
+//   const [courses, setCourses] = useState([]);
+
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     setCourses([...courses, { ...formData, scheme, batch }]);
+//     setFormData({
+//       semester: "",
+//       courseCode: "",
+//       nameofcourse: "",
+//       totalMarks: "",
+//       internal: "",
+//       external: "",
+//       practicals: "",
+//       credits: "",
+//       lectures: "",
+//       courseOutcome: "",
+//       electives: "",
+//     });
+//   };
+
+//   return (
+//     <div className="flex-1 p-5">
+//       <h1 className="text-3xl font-bold my-4">Course Scheme</h1>
+      
+//       <form className="mb-4" onSubmit={handleSubmit}>
+//         <table className="w-full border-collapse border border-gray-300">
+//           <thead>
+//             <tr className="bg-gray-200">
+//               <th className="border p-2">Scheme</th>
+//               <th className="border p-2">Batch</th>
+//               <th className="border p-2">Semester</th>
+//               <th className="border p-2">Course Code</th>
+//               <th className="border p-2">Name of Course</th>
+//               <th className="border p-2">Total Marks</th>
+//               <th className="border p-2">Internal</th>
+//               <th className="border p-2">External</th>
+//               <th className="border p-2">Practicals</th>
+//               <th className="border p-2">Credits</th>
+//               <th className="border p-2">Lectures</th>
+//               <th className="border p-2">Course Outcome</th>
+//               <th className="border p-2">Electives</th>
+//               <th className="border p-2">Actions</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             <tr>
+//               <td className="border p-2">
+//                 <select className="border p-2" value={scheme} onChange={(e) => setScheme(e.target.value)}>
+//                   <option value="MCA">MCA</option>
+//                   <option value="MBA">MBA</option>
+//                 </select>
+//               </td>
+//               <td className="border p-2">
+//                 <select className="border p-2" value={batch} onChange={(e) => setBatch(e.target.value)}>
+//                   <option value="2024-2025">2024-2025</option>
+//                 </select>
+//               </td>
+//               <td className="border p-2"><input type="number" name="semester" value={formData.semester} onChange={handleChange} required /></td>
+//               <td className="border p-2"><input type="text" name="courseCode" value={formData.courseCode} onChange={handleChange} required /></td>
+//               <td className="border p-2"><input type="text" name="nameofcourse" value={formData.nameofcourse} onChange={handleChange} required /></td>
+//               <td className="border p-2"><input type="number" name="totalMarks" value={formData.totalMarks} onChange={handleChange} required /></td>
+//               <td className="border p-2"><input type="number" name="internal" value={formData.internal} onChange={handleChange} required /></td>
+//               <td className="border p-2"><input type="number" name="external" value={formData.external} onChange={handleChange} required /></td>
+//               <td className="border p-2"><input type="text" name="practicals" value={formData.practicals} onChange={handleChange} required /></td>
+//               <td className="border p-2"><input type="number" name="credits" value={formData.credits} onChange={handleChange} required /></td>
+//               <td className="border p-2"><input type="number" name="lectures" value={formData.lectures} onChange={handleChange} required /></td>
+//               <td className="border p-2"><input type="text" name="courseOutcome" value={formData.courseOutcome} onChange={handleChange} required /></td>
+//               <td className="border p-2"><input type="text" name="electives" value={formData.electives} onChange={handleChange} /></td>
+//               <td className="border p-2"><button type="submit" className="bg-blue-500 text-white p-2 rounded-md">Add</button></td>
+//             </tr>
+//           </tbody>
+//         </table>
+//       </form>
+      
+//       {courses.length > 0 && (
+//         <table className="w-full border-collapse border border-gray-300 mt-4">
+//           <tbody>
+//             {courses.map((course, index) => (
+//               <tr key={index}>
+//                 <td className="border p-2">{course.scheme}</td>
+//                 <td className="border p-2">{course.batch}</td>
+//                 <td className="border p-2">{course.semester}</td>
+//                 <td className="border p-2">{course.courseCode}</td>
+//                 <td className="border p-2">{course.nameofcourse}</td>
+//                 <td className="border p-2">{course.totalMarks}</td>
+//                 <td className="border p-2">{course.internal}</td>
+//                 <td className="border p-2">{course.external}</td>
+//                 <td className="border p-2">{course.practicals}</td>
+//                 <td className="border p-2">{course.credits}</td>
+//                 <td className="border p-2">{course.lectures}</td>
+//                 <td className="border p-2">{course.courseOutcome}</td>
+//                 <td className="border p-2">{course.electives}</td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       )}
+//     </div>
+//   );
+// }
+
+
+
 import { useState } from "react";
 import { FiMenu, FiBook, FiHome } from "react-icons/fi";
-export function SchemeSetter(){
+export default function SchemeSetter(){
      const [isSidebarOpen, setSidebarOpen] = useState(true);
       const [openAllocation, setopenAllocation] = useState(false)
     
@@ -57,7 +185,7 @@ export function SchemeSetter(){
       };
 
     return <div className="flex h-screen">
-    {/* {isSidebarOpen && <Sidebar openAllocation={openAllocation} setopenAllocation={setopenAllocation} toggleSidebar={toggleSidebar} />} */}
+
     {
       <div className="flex-1 p-5">
       <h1 className="text-3xl font-bold my-4">Course Scheme</h1>
