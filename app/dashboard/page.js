@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { SchemeSetter } from "../components/SchemeSetter";
+import SchemeSetter  from "../components/SchemeSetter";
 import TeacherAllocation from "../components/TeacherAllocation";
 import { useRouter } from "next/navigation";
 import Sidebar from "../components/Sidebar";
