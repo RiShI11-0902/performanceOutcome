@@ -14,12 +14,12 @@ const Sidebar = ({ toggleSidebar, setopenAllocation, openAllocation, activeTab, 
 
   return (
     <div className="flex">
-      <button
+      {/* <button
         className="p-2 absolute top-0 left-5 rounded-md bg-gray-200 hover:bg-gray-300"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? "☰ Close" : "☰ Open"}
-      </button>
+      </button> */}
       <div className={`w-64 bg-white shadow-lg p-5 transition-all duration-300 ${isOpen ? "block" : "hidden"}`}>
         <h2 className="text-xl font-bold mb-5">Dashboard</h2>
         <ul>
