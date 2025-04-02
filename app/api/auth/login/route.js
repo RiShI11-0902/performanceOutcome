@@ -7,22 +7,31 @@ export async function POST(req) {
   try {
     const { email, password } = await req.json();
 
+    console.log(email,password);
+    
+
     // Check if user already exists
-    const existingUser = await User.findOne({ where: { email } });
-    if (existingUser) {
-      return NextResponse.json({ error: "User already exists" }, { status: 400 });
-    }
+    const FindUser = await User.findOne({ where: { email } });
 
     // Hash password
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create user
-    const newUser = await User.create({ email, password: hashedPassword });
+    // Compare password
 
-    return NextResponse.json(
-      { message: "User registered successfully", user: { email: newUser.email } },
-      { status: 201 }
-    );
+    bcrypt.compare(password, FindUser.password)
+      .then(isCorrect => {
+        if (isCorrect) {
+          return NextResponse.json(
+            { message: "User registered successfully", user: { email: newUser.email } },
+            { status: 201 }
+          );
+        } else {
+          return NextResponse.json({ error: "Incorrect Paaword" }, { status: 400 });
+        }
+      })
+      .catch(err => console.error("Error:", err));
+    
+   
   } catch (error) {
     console.error("Registration Error:", error);
     return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
